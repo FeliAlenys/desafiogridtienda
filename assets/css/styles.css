@@ -1,0 +1,262 @@
+/*Estilo general*/
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f5f8;/* Tonalidad verde clara */ 
+    background: linear-gradient(135deg, #e0f7ff, #cfe0f1); /* Fondo con degradado más futurista */
+    color: #333; /* Color de texto */
+}
+
+/* usando grid*/
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+     "navbar navbar"
+     "sidebar product-grid"
+     "footer footer";
+    height: 100vh;
+    gap: 20px; /* Espacio entre áreas */
+    
+    
+}
+
+/* Navbar */
+.navbar {
+    grid-area: navbar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(145deg, #34a4d6, #2bc2e3ee); /* Efecto metálico y futurista */
+    padding: 10px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto flotante */
+}
+
+.navbar h1 {
+    width: 300px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.navbar-center input {
+    width: 300px;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f7ff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-right ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.navbar-right ul li {
+    margin-left: 20px;
+    display: inline;
+}
+
+.navbar-right ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-right ul li a:hover {
+    color: #f0f7ff;
+}
+
+/* Contenido principal*/
+
+.main-content {
+    display: flex;
+    width: 100%; /* Se asegura que ocupe todo el ancho */
+    padding: 20px;
+}
+
+/* Inside Bar (Barra lateral) */
+.sidebar {
+    grid-area: sidebar;
+    /*width: 20%;*/
+    background-color: #cfe0f1; /* Azul claro metálico */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    border-radius: 10px; /* Bordes suaves */
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #040404;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #34a4d6; /* Color azul futurista */
+}
+
+/* Grilla de Productos */
+.product-grid {  
+    grid-area: product-grid;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0f7ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card { 
+    background-color: white;
+    border: 1px solid #ccc;
+    width: calc(33.333% - 40px);
+    margin: 10px;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mayor al hacer hover */
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1 em;
+    color: #333;
+}
+
+.product-card p {
+    color: #34a4d6;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-card button {
+    background-color: linear-gradient(145deg, #34a4d6, #2bc2e3);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #2b9bd6;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Pie de página */
+footer {
+    grid-area: footer;
+    background: linear-gradient(145deg, #34a4d6, #2bc2e3ee);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries para Responsiveness */
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .navbar-center input {
+        width: 200px; /* Reducir tamaño del input de búsqueda */
+    }
+
+    .navbar h1 {
+        font-size: 20px; /* Reducir tamaño del logo */
+    }
+
+    .product-card {
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        margin: 10px 0;
+    }
+
+    .sidebar {
+        display: none; /* Esconder la barra lateral en móviles */
+    }
+
+    .grid-container {
+        grid-template-areas: 
+            "navbar"
+            "product-grid"
+            "footer"; /* Sidebar eliminada del layout */
+    }
+}
+
+/* Para pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .navbar-center input {
+        width: 250px; /* Ajustar tamaño del input de búsqueda */
+    }
+
+    .product-card {
+        width: calc(50% - 40px); /* Dos columnas de productos */
+    }
+
+    .sidebar {
+        display: block;
+        width: 100%; /* Barra lateral visible en toda la pantalla */
+    }
+}
+
+/* Para pantallas grandes (desktops) */
+@media (min-width: 1025px) {
+    .product-card {
+        width: calc(33.333% - 40px); /* Tres columnas de productos */
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .navbar-center input {
+        width: 300px; /* Tamaño del input más grande en pantallas grandes */
+    }
+}
